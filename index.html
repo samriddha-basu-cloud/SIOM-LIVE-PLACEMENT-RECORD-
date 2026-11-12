@@ -272,6 +272,51 @@ tbody tr:last-child td{border-bottom:0}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 40px;font-family:var(--mono);letter-spacing:.04em}
 
+/* ---------- v3 additions ---------- */
+.fbar{padding:14px;display:grid;gap:12px;margin-bottom:14px}
+.frow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.sbox{position:relative;flex:1 1 240px;min-width:0}
+.sbox .ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
+.sbox .inp{width:100%;padding-left:40px}
+.fsel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.fsel label{display:grid;gap:5px;min-width:0}
+.fsel label>span:first-child{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.fsel select{width:100%;text-overflow:ellipsis}
+.sortrow{display:flex;gap:6px}.sortrow select{flex:1;min-width:0}
+#fToggle{display:none}
+#coPick{flex:0 1 220px;min-width:0}
+.fcount{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--accent);color:#07101c;font-size:.68rem;margin-left:2px}
+.achips{display:flex;flex-wrap:wrap;gap:8px}.achips:empty{display:none}
+.ac{display:inline-flex;align-items:center;gap:6px;padding:4px 5px 4px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));background:color-mix(in srgb,var(--accent) 10%,transparent);font-size:.78rem;max-width:100%}
+.ac button{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--glass-2);line-height:1;flex:none}
+.ac.clear{padding:4px 12px;color:var(--mute);cursor:pointer}
+.btn.on{background:color-mix(in srgb,var(--na) 16%,transparent);border-color:color-mix(in srgb,var(--na) 55%,transparent)}
+.btn:disabled{opacity:.4;cursor:default}
+.star{font-size:1.05rem;line-height:1;color:var(--faint);padding:2px 8px 2px 0;transition:.2s}
+.star:hover{color:var(--na)}
+.star.on{color:var(--na);text-shadow:0 0 10px color-mix(in srgb,var(--na) 70%,transparent)}
+.star.big{margin-left:auto;font-size:1.5rem;padding:6px;flex:none}
+mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;border-radius:4px;padding:0 2px}
+.newtag{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;padding:1px 6px;border-radius:6px;background:color-mix(in srgb,var(--accent-2) 22%,transparent);color:var(--accent-2);margin-left:8px;vertical-align:middle}
+.more{display:flex;gap:10px;justify-content:center;margin:16px 0;flex-wrap:wrap}.more:empty{display:none}
+.rtools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rtools select{max-width:210px}
+.cmp{margin-bottom:18px}
+.cmpgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cmpcol{padding:16px;border-radius:16px;border:1px solid var(--line);background:var(--glass);min-width:0}
+.cmpcol select{width:100%}
+.cmpnum{font-size:2.6rem;font-weight:650;letter-spacing:-.03em;margin-top:12px;line-height:1}
+.mini{height:8px;border-radius:5px;background:var(--line);overflow:hidden;margin-top:10px}
+.mini i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .8s}
+.co .list .row{margin-top:14px}
+.snav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px;font-family:var(--mono);font-size:.74rem;color:var(--mute)}
+.tipbar{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 14px;margin-top:14px;font-size:.84rem;color:var(--mute);border-radius:16px}
+.tipbar b{color:var(--accent-2);font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-right:10px}
+.tipbar button{width:28px;height:28px;border-radius:9px;flex:none;border:1px solid var(--line)}
+.keys{display:grid;gap:12px}.keys div{display:flex;align-items:center;gap:10px;font-size:.88rem}.keys div>span:last-child{margin-left:auto;color:var(--mute);text-align:right}
+#backTop{position:fixed;right:16px;bottom:22px;z-index:40;opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;border-radius:14px}
+#backTop.show{opacity:1;pointer-events:auto;transform:none}
+.res button .av{flex:none}
+
 /* ---------- responsive ---------- */
 @media(max-width:980px){
   .hero{grid-template-columns:1fr}
@@ -318,6 +363,39 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
 }
 @media(max-width:380px){.kpi .n{font-size:1.6rem}.tabs button span{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.bg i{animation:none}}
+@media(max-width:720px){
+  .fsel{display:none;grid-template-columns:1fr}
+  .fbar.open .fsel{display:grid}
+  #fToggle{display:inline-flex}
+  .sbox{flex:1 1 0}
+  .acts{display:grid;grid-template-columns:repeat(3,1fr)}
+  .acts .btn{justify-content:center;padding:10px 8px}
+  .inp,.sel-box{font-size:16px;min-height:44px}
+  .btn{min-height:44px}
+  .row .btn,.snav .btn{min-height:40px}
+  #coPick{flex:1 1 100%}
+  .cmpgrid{grid-template-columns:1fr}
+  #backTop{bottom:calc(88px + env(safe-area-inset-bottom))}
+  .rtools{width:100%}.rtools select{flex:1;max-width:none}
+  .co-grid{grid-template-columns:1fr}
+  .tipbar{font-size:.8rem}
+  .pill,.iconbtn{min-height:40px}
+  .tipbar button{width:36px;height:36px}
+}
+@media print{
+  :root[data-theme]{--bg:#fff;--ink:#111;--mute:#444;--faint:#666;--line:#ccc;--glass:#fff;--glass-2:#f3f4f8;--glass-hi:#fff;--accent:#2d4fb8;--accent-2:#0e7a72;--placed:#0b7a5f;--na:#9a6208;--pending:#b23a53;--shadow:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bg,.topbar,.tabs,.fbar,.more,#toast,#tip,.overlay,#backTop,.tipbar,.rtools,.hero-ring,#cmpBtn,.co-h+.list .row{display:none!important}
+  body{background:#fff;color:#111}
+  .glass{background:#fff!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  .glass::before{display:none}
+  .panel,.panel.active{display:block!important;animation:none;margin-top:18px;break-inside:auto}
+  .co .list{display:block!important}
+  .table-wrap{max-height:none;overflow:visible}
+  th{position:static}
+  .hero{grid-template-columns:1fr}
+  .card,.co,tr{break-inside:avoid}
+}
 </style>
 </head>
 <body>
@@ -331,6 +409,7 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
   <div class="tools">
     <button class="pill" id="openPal" aria-label="Search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="hide-m">Search</span><kbd class="hide-m">⌘K</kbd></button>
     <button class="pill sync" id="syncBtn" aria-label="Refresh data"><i class="led"></i><span class="t" id="syncTxt">Loading…</span></button>
+    <button class="iconbtn hide-m" id="helpBtn" aria-label="Keyboard shortcuts and tips"><b style="font-size:.95rem">?</b></button>
     <button class="iconbtn" id="themeBtn" aria-label="Toggle theme"><svg class="ico" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
   </div>
 </header>
@@ -361,6 +440,11 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
     </div>
   </section>
 
+  <div class="tipbar glass" id="tipbar" hidden>
+    <span><b>Tip</b>Tap any bubble to see who joined. Press <kbd>/</kbd> to search anything. Star <span style="color:var(--na)">★</span> students to build a shortlist.</span>
+    <button id="tipX" aria-label="Dismiss tip">×</button>
+  </div>
+
   <nav class="tabs glass" id="tabs" aria-label="Sections">
     <button data-tab="overview" class="active"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg><span>Overview</span></button>
     <button data-tab="cohort"><svg class="ico" viewBox="0 0 24 24"><circle cx="5" cy="5" r="1.6"/><circle cx="12" cy="5" r="1.6"/><circle cx="19" cy="5" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg><span>Cohort</span></button>
@@ -387,7 +471,8 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
 
     <div class="glass card mt">
       <div class="card-h"><h2>Recruiters</h2>
-        <div class="seg" id="vizSeg"><button data-v="bubbles" class="on">Bubbles</button><button data-v="bars">Bars</button></div></div>
+        <div class="rtools"><select class="sel-box" id="jumpCo" aria-label="Jump to a company"></select>
+        <div class="seg" id="vizSeg"><button data-v="bubbles" class="on">Bubbles</button><button data-v="bars">Bars</button></div></div></div>
       <div id="bubbleWrap"></div>
       <div id="detail"></div>
     </div>
@@ -412,23 +497,40 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
 
   <!-- COMPANIES -->
   <section id="companies" class="panel">
-    <div class="filters">
-      <input class="inp" id="coQ" type="search" placeholder="Search company or student…">
-      <div class="seg" id="coSort"><button data-s="n" class="on">Most offers</button><button data-s="az">A–Z</button></div>
+    <div class="glass fbar">
+      <div class="frow">
+        <div class="sbox"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="inp" id="coQ" type="search" placeholder="Search company or student…" aria-label="Search companies"></div>
+        <select class="sel-box" id="coPick" aria-label="Show one company"></select>
+        <div class="seg" id="coSort"><button data-s="n" class="on">Most offers</button><button data-s="az">A–Z</button></div>
+        <button class="btn" id="cmpBtn"><svg class="ico" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h13M16 21l4-4-4-4M20 17H7"/></svg>Compare</button>
+      </div>
     </div>
+    <div id="cmp"></div>
     <div class="co-grid" id="coGrid"></div>
   </section>
 
   <!-- STUDENTS -->
   <section id="students" class="panel">
-    <div class="filters">
-      <input class="inp" id="q" type="search" placeholder="Search name, PRN, SNAP ID, email, company…">
-      <select class="sel-box" id="fStatus"><option value="all">All statuses</option><option value="placed">Placed</option><option value="na">Not applicable</option><option value="pending">Yet to be placed</option></select>
-      <select class="sel-box" id="fBatch"><option value="all">All batches</option></select>
-      <select class="sel-box" id="fCompany"><option value="all">All companies</option></select>
-      <button class="btn" id="reset">Reset</button>
-      <button class="btn" id="csv"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span class="hide-m">CSV</span></button>
-      <button class="btn" id="share"><svg class="ico" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg><span class="hide-m">Link</span></button>
+    <div class="glass fbar" id="fbar">
+      <div class="frow">
+        <div class="sbox"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="inp" id="q" type="search" placeholder="Search name, PRN, SNAP ID, email, company…" aria-label="Search students"></div>
+        <button class="btn" id="fToggle" aria-expanded="false"><svg class="ico" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Filters<b class="fcount" id="fCount" hidden></b></button>
+      </div>
+      <div class="fsel" id="fSel">
+        <label><span>Status</span><select class="sel-box" id="fStatus"></select></label>
+        <label><span>Batch</span><select class="sel-box" id="fBatch"></select></label>
+        <label><span>Company</span><select class="sel-box" id="fCompany"></select></label>
+        <label><span>Sort by</span><span class="sortrow"><select class="sel-box" id="fSort"><option value="sr">Serial no.</option><option value="name">Name</option><option value="co">Company</option><option value="status">Status</option><option value="batch">Batch</option></select><button class="iconbtn" id="sortDir" aria-label="Reverse sort order">↑</button></span></label>
+      </div>
+      <div class="frow acts">
+        <button class="btn" id="starOnly" aria-pressed="false"><span style="color:var(--na)">★</span> <span id="starN">Starred</span></button>
+        <button class="btn" id="copyMail" title="Copy the emails of everyone listed"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="hide-m">Copy emails</span></button>
+        <button class="btn" id="csv" title="Download as CSV"><svg class="ico" viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span class="hide-m">CSV</span></button>
+        <button class="btn" id="share" title="Copy a link to this view"><svg class="ico" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg><span class="hide-m">Link</span></button>
+        <button class="btn" id="print" title="Print or save as PDF"><svg class="ico" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/></svg><span class="hide-m">Print</span></button>
+        <button class="btn" id="reset">Reset</button>
+      </div>
+      <div class="achips" id="achips"></div>
     </div>
     <div class="count-line" id="countLine"></div>
     <div class="glass table-wrap">
@@ -441,6 +543,7 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
       </table>
       <div class="empty" id="empty" hidden>No students match these filters.</div>
     </div>
+    <div class="more" id="more"></div>
   </section>
 </main>
 
@@ -463,6 +566,22 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
     <div class="hint hide-m"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>
   </div>
 </div>
+
+<div class="overlay" id="helpOv" hidden>
+  <div class="sheet glass" role="dialog" aria-modal="true" aria-label="Shortcuts and tips">
+    <button class="x" id="helpX" aria-label="Close"><svg class="ico" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <h3 style="margin-bottom:16px;padding-right:34px">Shortcuts &amp; tips</h3>
+    <div class="keys">
+      <div><span style="margin:0"><kbd>/</kbd> or <kbd>⌘K</kbd></span><span>Search students, companies, actions</span></div>
+      <div><span style="margin:0"><kbd>1</kbd> – <kbd>4</kbd></span><span>Switch between tabs</span></div>
+      <div><span style="margin:0"><kbd>←</kbd> <kbd>→</kbd></span><span>Previous / next student in a profile</span></div>
+      <div><span style="margin:0"><kbd>?</kbd></span><span>Open this help</span></div>
+      <div><span style="margin:0"><kbd>Esc</kbd></span><span>Close any panel</span></div>
+    </div>
+    <p class="sub" style="margin-top:18px">★ Starred students are saved on this device only — handy for building a shortlist you can copy or download. Any filtered view can be shared with the Link button.</p>
+  </div>
+</div>
+<button class="iconbtn glass" id="backTop" aria-label="Back to top"><svg class="ico" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></svg></button>
 
 <script>
 // Offline fallback snapshot (used only if the live sheet can't be reached). Row order = Sr No (1-144). Batch A = Sr 1-72, Batch B = Sr 73-144.
@@ -647,7 +766,7 @@ const snapshot = RAW.trim().split('\n').map((line, i) => {
 });
 
 let students = snapshot, companies = [], companyMap = {}, total = 0, usingSnapshot = true;
-const state = {tab:'overview', q:'', status:'all', batch:'all', company:'all', sort:'sr', dir:1, sel:null, cs:'all', cco:'all', viz:(innerWidth<720?'bars':'bubbles'), coSort:'n', coQ:''};
+const state = {tab:'overview', q:'', status:'all', batch:'all', company:'all', sort:'sr', dir:1, sel:null, cs:'all', cco:'all', viz:(innerWidth<720?'bars':'bubbles'), coSort:'n', coQ:'', coPick:'all', limit:40, starOnly:false, cmp:false, cmpA:null, cmpB:null};
 const cnt = (arr, st) => arr.filter(s => s.status === st).length;
 const pct = (n, d = total) => d ? Math.round(n / d * 100) : 0;
 const byId = sr => students.find(s => s.sr === sr);
@@ -718,6 +837,7 @@ function showTab(name, scroll = true){
 $('tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) showTab(b.dataset.tab, innerWidth > 720); });
 function goStudents(f = {}){
   state.q = f.q || ''; state.status = f.status || 'all'; state.batch = f.batch || 'all'; state.company = f.company || 'all';
+  state.starOnly = !!f.star; state.limit = PAGE;
   syncFilterUI(); renderTable(); showTab('students');
 }
 
@@ -790,6 +910,10 @@ function renderInsights(){
   const bs = [...new Set(students.map(s => s.batch))].filter(Boolean).map(b => { const set = students.filter(s => s.batch === b); return {b, r: pct(cnt(set, 'placed'), set.length), n: cnt(set, 'placed')}; });
   if (bs.length > 1){ bs.sort((a, c) => c.r - a.r);
     items.push(['◇', 'var(--placed)', `Batch <b>${esc(bs[0].b)}</b> leads at <b>${bs[0].r}%</b> placed vs ${bs[1].r}% for Batch ${esc(bs[1].b)}.`]); }
+  if (recent.size){
+    const names = [...recent.entries()].slice(0, 3).map(([prn, t]) => { const s = students.find(x => x.prn === prn); return s ? title(s.name) + ' → ' + t : ''; }).filter(Boolean);
+    items.unshift(['✦', 'var(--accent-2)', `<b>Fresh from the sheet:</b> ${names.map(esc).join('; ')}${recent.size > 3 ? ' and ' + (recent.size - 3) + ' more' : ''}.`]);
+  }
   items.push(['●', 'var(--pending)', `<b>${y}</b> students are still to be placed (${pct(y)}% of the batch). <b>${n}</b> marked not applicable.`]);
   $('insights').innerHTML = items.map(i => `<div class="ins" style="--c:${i[1]}"><span class="g">${i[0]}</span><div>${i[2]}</div></div>`).join('');
 }
@@ -835,6 +959,7 @@ function selectCompany(name){
 function chipsFor(list){ return list.map(s => `<button class="chip" data-sr="${s.sr}"><span class="av">${esc(initials(s.name))}</span>${esc(title(s.name))}</button>`).join(''); }
 function renderDetail(){
   const box = $('detail');
+  $('jumpCo').innerHTML = companyOpts('Pick a company…', state.sel);
   if (!state.sel){ box.innerHTML = companies.length ? '<div class="sub" style="margin-top:14px">Select a company to see who joined it.</div>' : ''; return; }
   const list = companyMap[state.sel] || [];
   const a = list.filter(s => s.batch === 'A').length, b = list.filter(s => s.batch === 'B').length;
@@ -865,7 +990,7 @@ $('batches').onclick = e => { const b = e.target.closest('button[data-b]'); if (
 function renderCohort(){
   $$('[data-cs]').forEach(b => b.classList.toggle('on', b.dataset.cs === state.cs));
   const sel = $('cohortCo'), keep = state.cco;
-  sel.innerHTML = '<option value="all">Highlight a company…</option>' + companies.map(c => `<option value="${esc(c.name)}">${esc(c.name)} (${c.list.length})</option>`).join('');
+  sel.innerHTML = companyOpts('Highlight a company…', keep);
   sel.value = companyMap[keep] ? keep : 'all'; state.cco = sel.value;
   const hl = state.cco !== 'all' ? state.cco : state.sel;
   const bs = [...new Set(students.map(s => s.batch))].filter(Boolean);
@@ -883,97 +1008,221 @@ $$('[data-cs]').forEach(b => b.onclick = () => { state.cs = b.dataset.cs; render
 $('cohortCo').onchange = e => { state.cco = e.target.value; renderCohort(); };
 
 /* ====================================================================
+   SHARED HELPERS
+==================================================================== */
+const PAGE = 40;
+let recent = new Map();                 // prn -> what changed (from live sheet updates)
+let stars = new Set();
+try { stars = new Set(JSON.parse(localStorage.getItem('siom-stars') || '[]')); } catch(e){}
+const saveStars = () => { try { localStorage.setItem('siom-stars', JSON.stringify([...stars])); } catch(e){} };
+function toggleStar(prn){ stars.has(prn) ? stars.delete(prn) : stars.add(prn); saveStars(); }
+/* every dropdown that lists companies uses this: alphabetical, with offer counts */
+function companyOpts(first, sel){
+  const list = [...companies].sort((a, b) => a.name.localeCompare(b.name));
+  return (first ? `<option value="all">${esc(first)}</option>` : '') +
+    list.map(c => `<option value="${esc(c.name)}"${c.name === sel ? ' selected' : ''}>${esc(c.name)} (${c.list.length})</option>`).join('');
+}
+const emailsOf = list => list.map(s => s.email).filter(Boolean).join(', ');
+async function copyText(t, msg){ try { await navigator.clipboard.writeText(t); toast(msg); } catch(e){ toast('Could not copy automatically'); } }
+function hl(txt, q){
+  txt = String(txt); if (!q) return esc(txt);
+  const l = txt.toLowerCase(); let i = 0, j, out = '';
+  while ((j = l.indexOf(q, i)) > -1){ out += esc(txt.slice(i, j)) + '<mark>' + esc(txt.slice(j, j + q.length)) + '</mark>'; i = j + q.length; }
+  return out + esc(txt.slice(i));
+}
+function noteChanges(prev, next){
+  const pm = new Map(prev.map(s => [s.prn, s])), ch = [];
+  next.forEach(s => { const o = pm.get(s.prn); if (!o || o.status !== s.status || o.co !== s.co) ch.push(s); });
+  ch.forEach(s => recent.set(s.prn, s.co || LABEL[s.status]));
+  if (ch.length) toast(`${ch.length} update${ch.length > 1 ? 's' : ''} from the sheet: ${title(ch[0].name)} → ${ch[0].co || LABEL[ch[0].status]}${ch.length > 1 ? ' +' + (ch.length - 1) + ' more' : ''}`);
+  return ch.length;
+}
+
+/* ====================================================================
    COMPANIES
 ==================================================================== */
 function renderCompanies(){
   const q = state.coQ.trim().toLowerCase();
-  let rows = companies.filter(c => !q || c.name.toLowerCase().includes(q) || c.list.some(s => s.name.toLowerCase().includes(q)));
+  if (state.coPick !== 'all' && !companyMap[state.coPick]) state.coPick = 'all';
+  $('coPick').innerHTML = companyOpts(`All companies (${companies.length})`, state.coPick);
+  let rows = companies.filter(c => (state.coPick === 'all' || c.name === state.coPick) &&
+    (!q || c.name.toLowerCase().includes(q) || c.list.some(s => s.name.toLowerCase().includes(q))));
   if (state.coSort === 'az') rows = [...rows].sort((a, b) => a.name.localeCompare(b.name));
   $$('#coSort button').forEach(b => b.classList.toggle('on', b.dataset.s === state.coSort));
   const open = new Set($$('#coGrid .co.open').map(d => d.dataset.co));
   $('coGrid').innerHTML = rows.length ? rows.map(c => {
     const a = c.list.filter(s => s.batch === 'A').length, b = c.list.length - a;
-    return `<div class="glass co ${open.has(c.name) || q ? 'open' : ''}" data-co="${esc(c.name)}">
+    return `<div class="glass co ${open.has(c.name) || q || state.coPick !== 'all' ? 'open' : ''}" data-co="${esc(c.name)}">
       <button class="co-h"><div class="top"><b>${esc(c.name)}</b><span class="num">${c.list.length}</span></div>
       <div class="split" data-tip="Batch A: ${a} · Batch B: ${b}"><i style="flex:${a}"></i><i style="flex:${b}"></i></div>
       <div class="foot"><div class="stackav">${c.list.slice(0, 4).map(s => `<span class="av">${esc(initials(s.name))}</span>`).join('')}</div><span>A ${a} · B ${b}</span></div></button>
-      <div class="list"><div class="chips">${chipsFor(c.list)}</div></div></div>`; }).join('') : '<div class="empty glass">No companies match.</div>';
+      <div class="list"><div class="chips">${chipsFor(c.list)}</div>
+        <div class="row"><button class="btn p" data-act="table" data-co="${esc(c.name)}">View in table</button><button class="btn" data-act="mail" data-co="${esc(c.name)}">Copy emails</button><button class="btn" data-act="map" data-co="${esc(c.name)}">Cohort map</button></div></div></div>`; }).join('') : '<div class="empty glass">No companies match.</div>';
+}
+function companyAct(e){
+  const a = e.target.closest('[data-act]'); if (!a) return false;
+  const co = a.dataset.co;
+  if (a.dataset.act === 'table') goStudents({company: co});
+  else if (a.dataset.act === 'mail') copyText(emailsOf(companyMap[co] || []), `Emails of ${(companyMap[co] || []).length} students at ${co} copied`);
+  else if (a.dataset.act === 'map'){ state.cco = co; showTab('cohort'); renderCohort(); }
+  return true;
 }
 $('coGrid').onclick = e => {
-  const chip = e.target.closest('.chip'); if (chip) return;
+  if (companyAct(e) || e.target.closest('.chip')) return;
   const h = e.target.closest('.co-h'); if (h) h.parentElement.classList.toggle('open');
 };
 $('coQ').oninput = e => { state.coQ = e.target.value; renderCompanies(); };
+$('coPick').onchange = e => { state.coPick = e.target.value; renderCompanies(); };
 $('coSort').onclick = e => { const b = e.target.closest('button'); if (b){ state.coSort = b.dataset.s; renderCompanies(); } };
+$('jumpCo').onchange = e => selectCompany(e.target.value === 'all' ? null : e.target.value);
+
+/* --- compare two companies --- */
+function renderCompare(){
+  const box = $('cmp'); $('cmpBtn').classList.toggle('on', state.cmp);
+  if (!state.cmp){ box.innerHTML = ''; return; }
+  if (companies.length < 2){ box.innerHTML = '<div class="empty glass">At least two companies are needed to compare.</div>'; return; }
+  if (!companyMap[state.cmpA]) state.cmpA = companies[0].name;
+  if (!companyMap[state.cmpB] || state.cmpB === state.cmpA) state.cmpB = companies.find(c => c.name !== state.cmpA).name;
+  const P = cnt(students, 'placed'), A = companyMap[state.cmpA], B = companyMap[state.cmpB], max = Math.max(A.length, B.length);
+  const col = (name, list, side) => { const a = list.filter(s => s.batch === 'A').length;
+    return `<div class="cmpcol"><select class="sel-box" data-side="${side}" aria-label="Company ${side.toUpperCase()}">${companyOpts(null, name)}</select>
+      <div class="cmpnum">${list.length}</div><div class="sub">${list.length === 1 ? 'offer' : 'offers'} · ${pct(list.length, P)}% of all placements</div>
+      <div class="mini"><i style="width:${list.length / max * 100}%"></i></div>
+      <div class="sub" style="margin:10px 0 6px">Batch A ${a} · Batch B ${list.length - a}</div>
+      <div class="chips">${chipsFor(list)}</div>
+      <div class="row"><button class="btn" data-act="mail" data-co="${esc(name)}">Copy emails</button><button class="btn" data-act="table" data-co="${esc(name)}">View in table</button></div></div>`; };
+  const d = A.length - B.length;
+  box.innerHTML = `<div class="glass card cmp"><div class="card-h"><h2>Compare</h2><span class="sub">${d === 0 ? 'Level on offers' : esc(d > 0 ? state.cmpA : state.cmpB) + ' leads by ' + Math.abs(d) + (Math.abs(d) === 1 ? ' offer' : ' offers')}</span></div>
+    <div class="cmpgrid">${col(state.cmpA, A, 'a')}${col(state.cmpB, B, 'b')}</div></div>`;
+}
+$('cmpBtn').onclick = () => { state.cmp = !state.cmp; renderCompare(); };
+$('cmp').onchange = e => { const s = e.target.closest('select[data-side]'); if (!s) return; state[s.dataset.side === 'a' ? 'cmpA' : 'cmpB'] = s.value; renderCompare(); };
+$('cmp').onclick = e => companyAct(e);
 
 /* ====================================================================
    STUDENTS TABLE
 ==================================================================== */
 let current = [];
 function syncFilterUI(){
-  const co = $('fCompany'), keep = state.company;
-  co.innerHTML = '<option value="all">All companies</option>' + Object.keys(companyMap).sort((a, b) => a.localeCompare(b)).map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
-  co.value = companyMap[keep] ? keep : 'all'; state.company = co.value;
-  const bs = $('fBatch'), bk = state.batch;
-  bs.innerHTML = '<option value="all">All batches</option>' + [...new Set(students.map(s => s.batch))].filter(Boolean).map(b => `<option value="${esc(b)}">Batch ${esc(b)}</option>`).join('');
-  bs.value = [...bs.options].some(o => o.value === bk) ? bk : 'all'; state.batch = bs.value;
-  $('fStatus').value = state.status; $('q').value = state.q;
+  const opt = (v, l, sel) => `<option value="${esc(v)}"${v === sel ? ' selected' : ''}>${esc(l)}</option>`;
+  if (!['all', 'placed', 'na', 'pending'].includes(state.status)) state.status = 'all';
+  $('fStatus').innerHTML = [['all', 'All statuses', total], ['placed', 'Placed', cnt(students, 'placed')], ['na', 'Not applicable', cnt(students, 'na')], ['pending', 'Yet to be placed', cnt(students, 'pending')]]
+    .map(([v, l, n]) => opt(v, `${l} (${n})`, state.status)).join('');
+  const batches = [...new Set(students.map(s => s.batch))].filter(Boolean);
+  if (state.batch !== 'all' && !batches.includes(state.batch)) state.batch = 'all';
+  $('fBatch').innerHTML = opt('all', `All batches (${total})`, state.batch) + batches.map(b => opt(b, `Batch ${b} (${students.filter(s => s.batch === b).length})`, state.batch)).join('');
+  if (state.company !== 'all' && !companyMap[state.company]) state.company = 'all';
+  $('fCompany').innerHTML = companyOpts(`All companies (${companies.length})`, state.company);
+  $('fSort').value = state.sort; $('q').value = state.q;
 }
 function renderTable(){
   const q = state.q.trim().toLowerCase();
   current = students.filter(s =>
     (state.status === 'all' || s.status === state.status) && (state.batch === 'all' || s.batch === state.batch) &&
-    (state.company === 'all' || s.co === state.company) &&
+    (state.company === 'all' || s.co === state.company) && (!state.starOnly || stars.has(s.prn)) &&
     (!q || [s.name, s.prn, s.snap, s.email, s.co, LABEL[s.status]].some(v => String(v).toLowerCase().includes(q)))
   ).sort((a, b) => { const x = a[state.sort], y = b[state.sort];
     return (typeof x === 'number' ? x - y : String(x).localeCompare(String(y))) * state.dir; });
-  $('tbody').innerHTML = current.map(s => `<tr data-sr="${s.sr}"><td class="c-sr">${s.sr}</td><td class="c-batch">${esc(s.batch)}</td><td class="c-prn">${esc(s.prn)}</td><td class="c-snap">${esc(s.snap)}</td>
-    <td class="c-name">${esc(title(s.name))}</td><td class="c-email">${esc(s.email)}</td><td class="c-status"><span class="badge ${s.status}">${LABEL[s.status]}</span></td><td class="c-co">${s.co ? esc(s.co) : '—'}</td></tr>`).join('');
+  const shown = current.slice(0, state.limit), left = current.length - shown.length;
+  $('tbody').innerHTML = shown.map(s => { const on = stars.has(s.prn);
+    return `<tr data-sr="${s.sr}"><td class="c-sr">${s.sr}</td><td class="c-batch">${esc(s.batch)}</td><td class="c-prn">${hl(s.prn, q)}</td><td class="c-snap">${hl(s.snap, q)}</td>
+    <td class="c-name"><button class="star ${on ? 'on' : ''}" data-prn="${esc(s.prn)}" aria-pressed="${on}" aria-label="${on ? 'Remove from shortlist' : 'Add to shortlist'}">★</button>${hl(title(s.name), q)}${recent.has(s.prn) ? '<span class="newtag">NEW</span>' : ''}</td>
+    <td class="c-email">${hl(s.email, q)}</td><td class="c-status"><span class="badge ${s.status}">${LABEL[s.status]}</span></td><td class="c-co">${s.co ? hl(s.co, q) : '—'}</td></tr>`; }).join('');
   $('empty').hidden = current.length > 0;
-  $('countLine').textContent = `${current.length} OF ${total} STUDENTS`;
+  $('empty').innerHTML = state.starOnly && !stars.size ? 'No starred students yet. Tap the ★ next to a name to add one.' : 'No students match these filters.';
+  $('more').innerHTML = left > 0 ? `<button class="btn p" data-m="more">Show ${Math.min(PAGE, left)} more</button><button class="btn" data-m="all">Show all (${left} left)</button>` : '';
+  $('countLine').textContent = `SHOWING ${shown.length} OF ${current.length}${current.length !== total ? ' MATCHES · ' + total + ' TOTAL' : ' STUDENTS'}`;
   $$('th[data-k]').forEach(th => { th.classList.toggle('s', th.dataset.k === state.sort); th.classList.toggle('d', th.dataset.k === state.sort && state.dir < 0); });
+  // active filter chips
+  const ac = [];
+  if (state.q) ac.push(['q', `“${state.q}”`]);
+  if (state.status !== 'all') ac.push(['status', LABEL[state.status]]);
+  if (state.batch !== 'all') ac.push(['batch', 'Batch ' + state.batch]);
+  if (state.company !== 'all') ac.push(['company', state.company]);
+  if (state.starOnly) ac.push(['star', '★ Starred']);
+  $('achips').innerHTML = ac.map(([k, l]) => `<span class="ac">${esc(l)}<button data-clear="${k}" aria-label="Remove filter ${esc(l)}">×</button></span>`).join('') + (ac.length > 1 ? '<button class="ac clear" data-clear="all">Clear all</button>' : '');
+  const nf = ac.filter(a => a[0] !== 'q').length; $('fCount').textContent = nf; $('fCount').hidden = !nf;
+  $('starN').textContent = stars.size ? `Starred (${stars.size})` : 'Starred';
+  $('starOnly').classList.toggle('on', state.starOnly); $('starOnly').setAttribute('aria-pressed', state.starOnly);
+  $('sortDir').textContent = state.dir > 0 ? '↑' : '↓'; $('fSort').value = state.sort;
   writeHash();
 }
-$('q').oninput = e => { state.q = e.target.value; renderTable(); };
-$('fStatus').onchange = e => { state.status = e.target.value; renderTable(); };
-$('fBatch').onchange = e => { state.batch = e.target.value; renderTable(); };
-$('fCompany').onchange = e => { state.company = e.target.value; renderTable(); };
+const refilter = () => { state.limit = PAGE; renderTable(); };
+$('q').oninput = e => { state.q = e.target.value; refilter(); };
+$('fStatus').onchange = e => { state.status = e.target.value; refilter(); };
+$('fBatch').onchange = e => { state.batch = e.target.value; refilter(); };
+$('fCompany').onchange = e => { state.company = e.target.value; refilter(); };
+$('fSort').onchange = e => { state.sort = e.target.value; state.dir = 1; refilter(); };
+$('sortDir').onclick = () => { state.dir = -state.dir; refilter(); };
+$('starOnly').onclick = () => { state.starOnly = !state.starOnly; refilter(); };
 $('reset').onclick = () => goStudents();
-$$('th[data-k]').forEach(th => th.onclick = () => { const k = th.dataset.k; state.dir = state.sort === k ? -state.dir : 1; state.sort = k; renderTable(); });
-$('tbody').onclick = e => { const r = e.target.closest('tr'); if (r) openStudent(+r.dataset.sr); };
+$('fToggle').onclick = () => { const o = $('fbar').classList.toggle('open'); $('fToggle').setAttribute('aria-expanded', o); };
+$('print').onclick = () => window.print();
+$('copyMail').onclick = () => current.length ? copyText(emailsOf(current), `${current.filter(s => s.email).length} emails copied`) : toast('No students in this view');
+$$('th[data-k]').forEach(th => th.onclick = () => { const k = th.dataset.k; state.dir = state.sort === k ? -state.dir : 1; state.sort = k; refilter(); });
+$('achips').onclick = e => {
+  const b = e.target.closest('[data-clear]'); if (!b) return; const k = b.dataset.clear;
+  if (k === 'all'){ goStudents(); return; }
+  if (k === 'q') state.q = ''; else if (k === 'star') state.starOnly = false; else state[k] = 'all';
+  syncFilterUI(); refilter();
+};
+$('more').onclick = e => { const b = e.target.closest('[data-m]'); if (!b) return; state.limit = b.dataset.m === 'all' ? Infinity : state.limit + PAGE; renderTable(); };
+$('tbody').onclick = e => {
+  const st = e.target.closest('.star');
+  if (st){ toggleStar(st.dataset.prn); renderTable(); return; }
+  const r = e.target.closest('tr'); if (r) openStudent(+r.dataset.sr);
+};
 $('csv').onclick = () => {
   const cell = v => '"' + String(v).replace(/"/g, '""') + '"';
   const lines = [['Sr','Batch','PRN','SNAP ID','Name','Email','Status','Company'].map(cell).join(',')].concat(current.map(s => [s.sr, s.batch, s.prn, s.snap, s.name, s.email, LABEL[s.status], s.co].map(cell).join(',')));
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/csv'}));
-  a.download = 'siom-placements.csv'; a.click(); URL.revokeObjectURL(a.href); toast('CSV downloaded');
+  a.download = 'siom-placements.csv'; a.click(); URL.revokeObjectURL(a.href); toast(`CSV downloaded (${current.length} rows)`);
 };
 $('share').onclick = async () => {
   writeHash(); const url = location.href;
-  try { await navigator.clipboard.writeText(url); toast('Link to this view copied'); } catch(e){ toast('Copy the address bar to share this view'); }
+  if (navigator.share && matchMedia('(pointer:coarse)').matches){
+    try { await navigator.share({title: 'SIOM Nashik placements 2025–27', url}); return; } catch(e){ if (e && e.name === 'AbortError') return; }
+  }
+  copyText(url, 'Link to this view copied');
 };
+let _lim;
+addEventListener('beforeprint', () => { _lim = state.limit; state.limit = Infinity; renderTable(); });
+addEventListener('afterprint', () => { state.limit = _lim || PAGE; renderTable(); });
 
 /* ====================================================================
    STUDENT SHEET
 ==================================================================== */
+const anyOverlayOpen = () => ['sheetOv', 'palOv', 'helpOv'].some(id => !$(id).hidden);
 function openOverlay(ov){ ov.hidden = false; requestAnimationFrame(() => ov.classList.add('show')); document.body.style.overflow = 'hidden'; }
-function closeOverlay(ov){ ov.classList.remove('show'); setTimeout(() => { ov.hidden = true; if ($('sheetOv').hidden && $('palOv').hidden) document.body.style.overflow = ''; }, reduce ? 0 : 200); }
+function closeOverlay(ov){ if (ov.contains(document.activeElement)) document.activeElement.blur(); ov.classList.remove('show'); setTimeout(() => { ov.hidden = true; if (!anyOverlayOpen()) document.body.style.overflow = ''; }, reduce ? 0 : 200); }
+let curSr = null;
+function navStudent(d){ const i = current.findIndex(m => m.sr === curSr), n = current[i + d]; if (i > -1 && n) openStudent(n.sr); }
 function openStudent(sr){
-  const s = byId(sr); if (!s) return;
+  const s = byId(sr); if (!s) return; curSr = sr;
   const mates = s.co ? (companyMap[s.co] || []).filter(m => m.sr !== s.sr) : [];
-  $('sheetBody').innerHTML = `<div class="sh-head"><span class="av">${esc(initials(s.name))}</span><div><h3>${esc(title(s.name))}</h3><span class="badge ${s.status}" style="margin-top:6px">${LABEL[s.status]}</span></div></div>
+  const i = state.tab === 'students' ? current.findIndex(m => m.sr === sr) : -1, on = stars.has(s.prn);
+  $('sheetBody').innerHTML = `<div class="sh-head"><span class="av">${esc(initials(s.name))}</span><div><h3>${esc(title(s.name))}</h3><span class="badge ${s.status}" style="margin-top:6px">${LABEL[s.status]}</span></div>
+    <button class="star big ${on ? 'on' : ''}" id="shStar" aria-pressed="${on}" aria-label="${on ? 'Remove from shortlist' : 'Add to shortlist'}">★</button></div>
     <div class="facts"><div class="fact wide"><small>${s.status === 'placed' ? 'Placed in' : 'Placement'}</small><b>${s.co ? esc(s.co) : esc(LABEL[s.status])}</b></div>
     <div class="fact"><small>Batch</small><b>${esc(s.batch)}</b></div><div class="fact"><small>Sr No</small><b>${s.sr}</b></div>
     <div class="fact"><small>PRN</small><b>${esc(s.prn)}</b></div><div class="fact"><small>SNAP ID</small><b>${esc(s.snap)}</b></div>
     <div class="fact wide"><small>Email</small><b>${esc(s.email) || '—'}</b></div></div>
     <div class="row">${s.email ? `<button class="btn p" id="shCopy">Copy email</button><a class="btn" href="mailto:${esc(s.email)}" style="text-decoration:none">Send mail</a>` : ''}
     ${s.co ? '<button class="btn" id="shCo">All at ' + esc(s.co) + '</button>' : ''}</div>
+    ${i > -1 ? `<div class="snav"><button class="btn" id="shPrev" ${i === 0 ? 'disabled' : ''}>← Prev</button><span>${i + 1} / ${current.length}</span><button class="btn" id="shNext" ${i === current.length - 1 ? 'disabled' : ''}>Next →</button></div>` : ''}
     ${mates.length ? `<div class="sub" style="margin-top:20px">Also at ${esc(s.co)}</div><div class="chips">${chipsFor(mates)}</div>` : ''}`;
-  const c = $('shCopy'); if (c) c.onclick = async () => { try { await navigator.clipboard.writeText(s.email); toast('Email copied'); } catch(e){ toast(s.email); } };
+  $('shStar').onclick = () => { toggleStar(s.prn); const o = stars.has(s.prn); $('shStar').classList.toggle('on', o); $('shStar').setAttribute('aria-pressed', o); toast(o ? 'Added to your shortlist' : 'Removed from shortlist'); renderTable(); };
+  const c = $('shCopy'); if (c) c.onclick = () => copyText(s.email, 'Email copied');
   const g = $('shCo'); if (g) g.onclick = () => { closeOverlay($('sheetOv')); goStudents({company: s.co}); };
+  const p = $('shPrev'), n = $('shNext'); if (p) p.onclick = () => navStudent(-1); if (n) n.onclick = () => navStudent(1);
+  const sh = $('sheetOv').querySelector('.sheet'); if (sh) sh.scrollTop = 0;
   openOverlay($('sheetOv'));
 }
 $('sheetX').onclick = () => closeOverlay($('sheetOv'));
 $('sheetOv').onclick = e => { if (e.target === $('sheetOv')) closeOverlay($('sheetOv')); };
+$('helpX').onclick = () => closeOverlay($('helpOv'));
+$('helpOv').onclick = e => { if (e.target === $('helpOv')) closeOverlay($('helpOv')); };
+$('helpBtn').onclick = () => openOverlay($('helpOv'));
 // any element carrying data-sr opens the student sheet
 document.addEventListener('click', e => {
   const t = e.target.closest('.chip[data-sr], .dot[data-sr]'); if (!t) return;
@@ -982,24 +1231,42 @@ document.addEventListener('click', e => {
 });
 
 /* ====================================================================
-   COMMAND PALETTE
+   COMMAND PALETTE + KEYBOARD
 ==================================================================== */
+const CMDS = [
+  ['Go to Overview', 'tab:overview', '1'], ['Go to Cohort map', 'tab:cohort', '2'], ['Go to Companies', 'tab:companies', '3'], ['Go to Students', 'tab:students', '4'],
+  ['Show students yet to be placed', 'f:pending', ''], ['Show placed students', 'f:placed', ''], ['Show my starred students', 'star', ''],
+  ['Compare two companies', 'cmp', ''], ['Copy link to this view', 'link', ''], ['Toggle light / dark', 'theme', ''], ['Print or save as PDF', 'print', ''], ['Keyboard shortcuts', 'help', '?']
+];
+function runCmd(v){
+  if (v.startsWith('tab:')) showTab(v.slice(4));
+  else if (v.startsWith('f:')) goStudents({status: v.slice(2)});
+  else if (v === 'star') goStudents({star: true});
+  else if (v === 'cmp'){ state.cmp = true; showTab('companies'); renderCompare(); }
+  else if (v === 'link') $('share').click();
+  else if (v === 'theme') $('themeBtn').click();
+  else if (v === 'print') window.print();
+  else if (v === 'help') openOverlay($('helpOv'));
+}
 let palItems = [], palIdx = 0;
 function renderPalette(){
   const q = $('palQ').value.trim().toLowerCase(); palItems = [];
-  const st = (q ? students.filter(s => [s.name, s.email, s.co, s.prn, s.snap].some(v => String(v).toLowerCase().includes(q))) : students.filter(s => s.status === 'placed')).slice(0, 7);
-  const cs = (q ? companies.filter(c => c.name.toLowerCase().includes(q)) : companies).slice(0, 4);
+  const cmds = CMDS.filter(c => !q || c[0].toLowerCase().includes(q)).slice(0, q ? 5 : 4);
+  const st = (q ? students.filter(s => [s.name, s.email, s.co, s.prn, s.snap].some(v => String(v).toLowerCase().includes(q))) : students.filter(s => s.status === 'placed')).slice(0, q ? 7 : 4);
+  const cs = (q ? companies.filter(c => c.name.toLowerCase().includes(q)) : companies).slice(0, q ? 5 : 3);
   let h = '';
-  if (cs.length){ h += '<h4>Companies</h4>'; cs.forEach(c => { palItems.push({t:'c', v:c.name}); h += `<button data-i="${palItems.length - 1}"><span class="av">${esc(initials(c.name))}</span><span>${esc(c.name)}</span><small>${c.list.length} offers</small></button>`; }); }
-  if (st.length){ h += `<h4>${q ? 'Students' : 'Recently placed'}</h4>`; st.forEach(s => { palItems.push({t:'s', v:s.sr}); h += `<button data-i="${palItems.length - 1}"><span class="av">${esc(initials(s.name))}</span><span>${esc(title(s.name))}</span><small>${esc(s.co || LABEL[s.status])}</small></button>`; }); }
+  if (cmds.length){ h += '<h4>Actions</h4>'; cmds.forEach(c => { palItems.push({t: 'x', v: c[1]}); h += `<button data-i="${palItems.length - 1}"><span class="av">›</span><span>${esc(c[0])}</span><small>${c[2] ? '<kbd>' + esc(c[2]) + '</kbd>' : ''}</small></button>`; }); }
+  if (cs.length){ h += '<h4>Companies</h4>'; cs.forEach(c => { palItems.push({t: 'c', v: c.name}); h += `<button data-i="${palItems.length - 1}"><span class="av">${esc(initials(c.name))}</span><span>${esc(c.name)}</span><small>${c.list.length} offers</small></button>`; }); }
+  if (st.length){ h += `<h4>${q ? 'Students' : 'Recently placed'}</h4>`; st.forEach(s => { palItems.push({t: 's', v: s.sr}); h += `<button data-i="${palItems.length - 1}"><span class="av">${esc(initials(s.name))}</span><span>${esc(title(s.name))}</span><small>${esc(s.co || LABEL[s.status])}</small></button>`; }); }
   $('palRes').innerHTML = h || '<div class="none">Nothing found.</div>';
   palIdx = 0; hiPal();
 }
-function hiPal(){ $$('#palRes button').forEach((b, i) => { b.classList.toggle('on', i === palIdx); if (i === palIdx) b.scrollIntoView({block:'nearest'}); }); }
+function hiPal(){ $$('#palRes button').forEach((b, i) => { b.classList.toggle('on', i === palIdx); if (i === palIdx) b.scrollIntoView({block: 'nearest'}); }); }
 function pickPal(i){
   const it = palItems[i]; if (!it) return;
   closeOverlay($('palOv'));
   if (it.t === 's') setTimeout(() => openStudent(it.v), 120);
+  else if (it.t === 'x') setTimeout(() => runCmd(it.v), 120);
   else { state.sel = it.v; showTab('overview'); renderViz(); renderDetail(); renderCohort(); }
 }
 function openPal(){ $('palQ').value = ''; renderPalette(); openOverlay($('palOv')); setTimeout(() => $('palQ').focus(), 50); }
@@ -1011,7 +1278,10 @@ document.addEventListener('keydown', e => {
   const typing = /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); $('palOv').hidden ? openPal() : closeOverlay($('palOv')); return; }
   if (e.key === '/' && !typing && $('palOv').hidden){ e.preventDefault(); openPal(); return; }
-  if (e.key === 'Escape'){ if (!$('palOv').hidden) closeOverlay($('palOv')); if (!$('sheetOv').hidden) closeOverlay($('sheetOv')); }
+  if (e.key === '?' && !typing){ e.preventDefault(); $('helpOv').hidden ? openOverlay($('helpOv')) : closeOverlay($('helpOv')); return; }
+  if (e.key === 'Escape'){ const open = anyOverlayOpen(); ['palOv', 'sheetOv', 'helpOv'].forEach(id => { if (!$(id).hidden) closeOverlay($(id)); }); if (!open && typing) document.activeElement.blur(); }
+  if (!typing && !e.metaKey && !e.ctrlKey && !e.altKey && /^[1-4]$/.test(e.key) && !anyOverlayOpen()) showTab(['overview', 'cohort', 'companies', 'students'][+e.key - 1]);
+  if (!$('sheetOv').hidden && !typing){ if (e.key === 'ArrowRight') navStudent(1); if (e.key === 'ArrowLeft') navStudent(-1); }
   if (!$('palOv').hidden){
     if (e.key === 'ArrowDown'){ e.preventDefault(); palIdx = Math.min(palItems.length - 1, palIdx + 1); hiPal(); }
     if (e.key === 'ArrowUp'){ e.preventDefault(); palIdx = Math.max(0, palIdx - 1); hiPal(); }
@@ -1034,7 +1304,7 @@ $('themeBtn').onclick = () => {
 ==================================================================== */
 function renderAll(){
   derive(); renderHero(); renderDonut(); renderInsights(); renderViz(); renderDetail(); renderBatches();
-  renderCohort(); renderCompanies(); syncFilterUI(); renderTable();
+  renderCohort(); renderCompanies(); renderCompare(); syncFilterUI(); renderTable();
 }
 
 /* ====================================================================
@@ -1073,7 +1343,13 @@ async function refresh(){
     if (!list.length) throw new Error('empty');
     const sig = JSON.stringify(list);
     usingSnapshot = false;
-    if (sig !== lastSig){ const first = lastSig === ''; students = list; lastSig = sig; renderAll(); if (!first) toast('Dashboard updated from the sheet'); }
+    if (sig !== lastSig){
+      const first = lastSig === '', prev = students;
+      students = list; lastSig = sig;
+      const n = first ? 0 : noteChanges(prev, list);
+      renderAll();
+      if (!first && !n) toast('Dashboard updated from the sheet');
+    }
     b.classList.add('live'); $('syncTxt').textContent = 'Live · ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
   } catch (err){
     b.classList.remove('live');
@@ -1089,6 +1365,12 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) refr
 readHash();
 renderAll();
 showTab(['overview', 'cohort', 'companies', 'students'].includes(state.tab) ? state.tab : 'overview', false);
+if (innerWidth < 720){ $('q').placeholder = 'Search students…'; $('coQ').placeholder = 'Search companies…'; }
+try { if (!localStorage.getItem('siom-tip')) $('tipbar').hidden = false; } catch(e){ $('tipbar').hidden = false; }
+$('tipX').onclick = () => { $('tipbar').hidden = true; try { localStorage.setItem('siom-tip', '1'); } catch(e){} };
+const bt = $('backTop');
+addEventListener('scroll', () => bt.classList.toggle('show', scrollY > 700), {passive: true});
+bt.onclick = () => scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
 refresh();
 setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
 </script>
