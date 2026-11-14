@@ -205,6 +205,14 @@ kbd{font-family:var(--mono);font-size:.68rem;padding:2px 6px;border-radius:6px;b
 .dot.sel{background:var(--c);box-shadow:0 0 14px var(--c)}
 
 /* ---------- companies ---------- */
+.gtag{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:.68rem;font-weight:600;letter-spacing:.01em;white-space:nowrap;border:1px solid var(--line);background:var(--glass);color:var(--mute)}
+.gtag.cm{color:var(--accent);background:color-mix(in srgb,var(--accent) 11%,transparent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.gtag.cl{color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 11%,transparent);border-color:color-mix(in srgb,var(--accent-2) 30%,transparent)}
+.gtag.big{font-size:.8rem;padding:6px 12px;cursor:pointer}.gtag.big em{font-style:normal;opacity:.7;font-weight:500}
+.gchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+@media (min-width:721px) and (max-width:1420px){.c-snap,th[data-k=snap],.c-batch,th[data-k=batch]{display:none}}
+.c-grp{white-space:nowrap}.c-grp .gtag{margin-right:4px;padding:2px 8px;max-width:112px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}.gnone{color:var(--faint)}
+.chip .role{font-style:normal;font-size:.68rem;color:var(--faint);margin-left:2px}
 .co-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
 .co{padding:0}
 .co>button{width:100%;text-align:left;padding:16px 18px;display:block}
@@ -278,7 +286,7 @@ footer{text-align:center;color:var(--faint);font-size:.74rem;padding:34px 16px 4
 .sbox{position:relative;flex:1 1 240px;min-width:0}
 .sbox .ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
 .sbox .inp{width:100%;padding-left:40px}
-.fsel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.fsel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .fsel label{display:grid;gap:5px;min-width:0}
 .fsel label>span:first-child{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .fsel select{width:100%;text-overflow:ellipsis}
@@ -354,6 +362,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
   .c-name{grid-column:1;font-size:.95rem}
   .c-status{grid-column:2;grid-row:1;justify-self:end}
   .c-co{grid-column:1;color:var(--mute);font-size:.82rem}
+  .c-grp{grid-column:1/-1;white-space:normal}.c-grp .gtag{margin:2px 4px 2px 0}.c-grp:has(.gnone){display:none}
   .c-batch{grid-column:2;grid-row:2;justify-self:end;color:var(--faint);font-size:.74rem;font-family:var(--mono)}
   .c-batch::before{content:"BATCH "}
   .c-email{grid-column:1/-1;color:var(--faint);font-size:.76rem;word-break:break-all}
@@ -450,6 +459,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
     <button data-tab="cohort"><svg class="ico" viewBox="0 0 24 24"><circle cx="5" cy="5" r="1.6"/><circle cx="12" cy="5" r="1.6"/><circle cx="19" cy="5" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/><circle cx="5" cy="19" r="1.6"/><circle cx="12" cy="19" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg><span>Cohort</span></button>
     <button data-tab="companies"><svg class="ico" viewBox="0 0 24 24"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M14 9h5a1 1 0 0 1 1 1v11M2 21h20M8 8h2M8 12h2M8 16h2"/></svg><span>Companies</span></button>
     <button data-tab="students"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.2a3.2 3.2 0 0 1 0 5.6M18 14.3c1.8.8 3 2.6 3 4.7"/></svg><span>Students</span></button>
+    <button data-tab="groups"><svg class="ico" viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.6"/><circle cx="17" cy="9" r="2.2"/><path d="M3 19c0-2.8 2.2-5 5-5s5 2.2 5 5M14.5 14.4c.8-.3 1.6-.4 2.5-.4 2.2 0 4 1.8 4 4"/></svg><span>Groups</span></button>
   </nav>
 
   <!-- OVERVIEW -->
@@ -509,6 +519,18 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
     <div class="co-grid" id="coGrid"></div>
   </section>
 
+  <!-- GROUPS -->
+  <section id="groups" class="panel">
+    <div class="glass fbar">
+      <div class="frow">
+        <div class="sbox"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input class="inp" id="gQ" type="search" placeholder="Search committee, club or student…" aria-label="Search committees and clubs"></div>
+        <div class="seg" id="gKind"><button data-k="all" class="on">All</button><button data-k="cm">Committees</button><button data-k="cl">Clubs</button></div>
+      </div>
+    </div>
+    <div class="count-line" id="gCount"></div>
+    <div class="co-grid" id="gGrid"></div>
+  </section>
+
   <!-- STUDENTS -->
   <section id="students" class="panel">
     <div class="glass fbar" id="fbar">
@@ -520,6 +542,8 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
         <label><span>Status</span><select class="sel-box" id="fStatus"></select></label>
         <label><span>Batch</span><select class="sel-box" id="fBatch"></select></label>
         <label><span>Company</span><select class="sel-box" id="fCompany"></select></label>
+        <label><span>Committee</span><select class="sel-box" id="fCm"></select></label>
+        <label><span>Club</span><select class="sel-box" id="fCl"></select></label>
         <label><span>Sort by</span><span class="sortrow"><select class="sel-box" id="fSort"><option value="sr">Serial no.</option><option value="name">Name</option><option value="co">Company</option><option value="status">Status</option><option value="batch">Batch</option></select><button class="iconbtn" id="sortDir" aria-label="Reverse sort order">↑</button></span></label>
       </div>
       <div class="frow acts">
@@ -537,7 +561,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
       <table>
         <thead><tr>
           <th data-k="sr">Sr</th><th data-k="batch">Batch</th><th data-k="prn">PRN</th><th data-k="snap">SNAP ID</th>
-          <th data-k="name">Name</th><th data-k="email">Email</th><th data-k="status">Status</th><th data-k="co">Company</th>
+          <th data-k="name">Name</th><th data-k="email">Email</th><th data-k="status">Status</th><th data-k="co">Company</th><th>Committees &amp; clubs</th>
         </tr></thead>
         <tbody id="tbody"></tbody>
       </table>
@@ -753,20 +777,25 @@ const NS = 'http://www.w3.org/2000/svg';
 /* ====================================================================
    DATA
 ==================================================================== */
-function mkStudent(sr, batch, prn, snap, name, email, co){
+const AFF = {"1":["Placement Committee","Octaves Club"],"2":["Communication & PR Committee",""],"3":["","Invesh Club"],"4":["","Photography Club (Pixels)"],"5":["Placement Committee","Art & Literary Club"],"6":["Alumni Committee",""],"7":["Sponsorship Committee",""],"8":["Academic Committee; SCEW Mental Health Champions","Invesh Club"],"9":["","Photography Club (Pixels)"],"10":["","Quality Club"],"11":["Communication & PR Committee",""],"12":["Students Consulting Club",""],"13":["Mess Committee",""],"14":["Admissions Committee",""],"15":["Cultural Committee","Synchroners Club"],"16":["Competition & Certifications Committee",""],"17":["Spandan Committee",""],"18":["","Invesh Club"],"19":["Institution's Innovation Council (IIC) (Startup Coordinator)",""],"20":["","Photography Club (Pixels)"],"21":["Institution's Innovation Council (IIC) (Startup Coordinator)",""],"22":["Communication & PR Committee; Institution's Innovation Council (IIC) (Social Media Coordinator)",""],"23":["Placement Committee","Octaves Club; Art & Literary Club"],"24":["Competition & Certifications Committee",""],"25":["",""],"26":["",""],"27":["Pet Committee",""],"28":["Alumni Committee",""],"29":["Cultural Committee",""],"30":["Institution's Innovation Council (IIC) (IPR Coordinator)",""],"31":["Spandan Committee",""],"32":["Communication & PR Committee",""],"33":["",""],"34":["Admissions Committee; Institute Anti-Ragging Committee",""],"35":["Placement Committee",""],"36":["Campus Wellness Advisory Committee","Art & Literary Club"],"37":["Students Consulting Club",""],"38":["Alumni Committee","Art & Literary Club"],"39":["Admissions Committee",""],"40":["Guest Lecture Committee",""],"41":["Placement Committee",""],"42":["Alumni Committee","Octaves Club"],"43":["","Octaves Club"],"44":["Sponsorship Committee",""],"45":["Cultural Committee","Synchroners Club"],"46":["Guest Lecture Committee",""],"47":["Admissions Committee",""],"48":["",""],"49":["IT Services & Website Committee",""],"50":["Placement Committee",""],"51":["",""],"52":["Placement Committee",""],"53":["",""],"54":["Spandan Committee","Synchroners Club"],"55":["Students Consulting Club; Pet Committee",""],"56":["IT Services & Website Committee",""],"57":["Library Committee (SIU)","Octaves Club"],"58":["Alumni Committee",""],"59":["",""],"60":["Admissions Committee",""],"61":["Admissions Committee",""],"62":["Communication & PR Committee",""],"63":["Cultural Committee",""],"64":["Communication & PR Committee",""],"65":["Library Committee (SIU)",""],"66":["","Octaves Club"],"67":["Spandan Committee","Octaves Club"],"68":["Library Committee (SIU) (Student Rep)",""],"69":["Admissions Committee","Photography Club (Pixels)"],"70":["",""],"71":["Hostel Committee",""],"72":["Mess Committee",""],"73":["","Art & Literary Club"],"74":["",""],"75":["Admissions Committee",""],"76":["Communication & PR Committee","Photography Club (Pixels)"],"77":["Placement Committee",""],"78":["Placement Committee",""],"79":["Cultural Committee",""],"80":["Spandan Committee",""],"81":["Gender Champions",""],"82":["Guest Lecture Committee","Invesh Club"],"83":["Institute Sports Council",""],"84":["Mess Committee","Art & Literary Club"],"85":["Students Consulting Club",""],"86":["Competition & Certifications Committee",""],"87":["Competition & Certifications Committee",""],"88":["Hostel Committee; Crisis Management Committee; SCEW Mental Health Champions","Synchroners Club; Art & Literary Club; Invesh Club"],"89":["IT Services & Website Committee",""],"90":["Mess Committee",""],"91":["Crisis Management Committee",""],"92":["Sponsorship Committee",""],"93":["Spandan Committee",""],"94":["","Synchroners Club"],"95":["Spandan Committee",""],"96":["Institute Sports Council (Female Student Rep)","Octaves Club"],"97":["","Photography Club (Pixels)"],"98":["Communication & PR Committee","Art & Literary Club"],"99":["Institution's Innovation Council (IIC) (Innovation Coordinator)",""],"100":["Guest Lecture Committee","Synchroners Club"],"101":["Cultural Committee",""],"102":["Guest Lecture Committee","Synchroners Club"],"103":["","Invesh Club"],"104":["Sponsorship Committee",""],"105":["Students Consulting Club",""],"106":["Hostel Committee",""],"107":["IT Services & Website Committee",""],"108":["Placement Committee",""],"109":["","Invesh Club"],"110":["Competition & Certifications Committee","Octaves Club; Quality Club"],"111":["Admissions Committee",""],"112":["Spandan Committee",""],"113":["Sponsorship Committee",""],"114":["Alumni Committee",""],"115":["",""],"116":["Spandan Committee","Photography Club (Pixels)"],"117":["Guest Lecture Committee",""],"118":["Academic Committee",""],"119":["",""],"120":["Crisis Management Committee",""],"121":["Spandan Committee","Synchroners Club"],"122":["Sponsorship Committee",""],"123":["",""],"124":["Admissions Committee","Synchroners Club"],"125":["Hostel Committee","Synchroners Club"],"126":["Sponsorship Committee",""],"127":["Alumni Committee",""],"128":["Alumni Committee",""],"129":["","Photography Club (Pixels)"],"130":["Institute Sports Council","Octaves Club"],"131":["Institute Sports Council","Synchroners Club"],"132":["Mess Committee",""],"133":["Communication & PR Committee",""],"134":["Students Consulting Club",""],"135":["Campus Wellness Advisory Committee","Art & Literary Club"],"136":["","Photography Club (Pixels)"],"137":["Cultural Committee","Octaves Club"],"138":["Institute Sports Council","Synchroners Club"],"139":["Sponsorship Committee",""],"140":["","Octaves Club"],"141":["Institute Sports Council",""],"142":["Campus Wellness Advisory Committee",""],"143":["Communication & PR Committee",""],"144":["IT Services & Website Committee",""]};
+const splitList = v => String(v || '').split(';').map(x => x.trim()).filter(Boolean);
+const grpBase = x => x.replace(/ \((?:[^()]*(?:Coordinator|Rep))\)$/, '');
+const grpRole = x => { const m = x.match(/ \(([^()]*(?:Coordinator|Rep))\)$/); return m ? m[1] : ''; };
+function mkStudent(sr, batch, prn, snap, name, email, co, cm, cl){
   co = (co || '').trim();
   const status = co.toUpperCase() === 'N/A' ? 'na' : co ? 'placed' : 'pending';
   return {sr, batch, prn: String(prn), snap: String(snap), name: String(name).trim(), email: String(email || '').trim(),
-          status, co: status === 'placed' ? co : ''};
+          status, co: status === 'placed' ? co : '', cm: splitList(cm), cl: splitList(cl)};
 }
 const snapshot = RAW.trim().split('\n').map((line, i) => {
   const [snap, name, email, co] = line.split('|');
   const sr = i + 1;
-  return mkStudent(sr, sr <= 72 ? 'A' : 'B', 25020741000 + sr, snap, name, email, co);
+  const a = AFF[sr] || [];
+  return mkStudent(sr, sr <= 72 ? 'A' : 'B', 25020741000 + sr, snap, name, email, co, a[0], a[1]);
 });
 
 let students = snapshot, companies = [], companyMap = {}, total = 0, usingSnapshot = true;
-const state = {tab:'overview', q:'', status:'all', batch:'all', company:'all', sort:'sr', dir:1, sel:null, cs:'all', cco:'all', viz:(innerWidth<720?'bars':'bubbles'), coSort:'n', coQ:'', coPick:'all', limit:40, starOnly:false, cmp:false, cmpA:null, cmpB:null};
+const state = {tab:'overview', q:'', status:'all', batch:'all', company:'all', sort:'sr', dir:1, sel:null, cs:'all', cco:'all', viz:(innerWidth<720?'bars':'bubbles'), coSort:'n', coQ:'', coPick:'all', limit:40, starOnly:false, cm:'all', cl:'all', gQ:'', gKind:'all', cmp:false, cmpA:null, cmpB:null};
 const cnt = (arr, st) => arr.filter(s => s.status === st).length;
 const pct = (n, d = total) => d ? Math.round(n / d * 100) : 0;
 const byId = sr => students.find(s => s.sr === sr);
@@ -815,6 +844,8 @@ function writeHash(){
   if (state.status !== 'all') p.set('status', state.status);
   if (state.batch !== 'all') p.set('batch', state.batch);
   if (state.company !== 'all') p.set('company', state.company);
+  if (state.cm !== 'all') p.set('cm', state.cm);
+  if (state.cl !== 'all') p.set('cl', state.cl);
   try { history.replaceState(null, '', location.pathname + location.search + (p.toString() ? '#' + p : '')); } catch(e){}
 }
 function readHash(){
@@ -822,6 +853,7 @@ function readHash(){
   if (p.get('tab')) state.tab = p.get('tab');
   state.q = p.get('q') || ''; state.status = p.get('status') || 'all';
   state.batch = p.get('batch') || 'all'; state.company = p.get('company') || 'all';
+  state.cm = p.get('cm') || 'all'; state.cl = p.get('cl') || 'all';
 }
 
 /* ====================================================================
@@ -836,7 +868,7 @@ function showTab(name, scroll = true){
 }
 $('tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) showTab(b.dataset.tab, innerWidth > 720); });
 function goStudents(f = {}){
-  state.q = f.q || ''; state.status = f.status || 'all'; state.batch = f.batch || 'all'; state.company = f.company || 'all';
+  state.q = f.q || ''; state.status = f.status || 'all'; state.batch = f.batch || 'all'; state.company = f.company || 'all'; state.cm = f.cm || 'all'; state.cl = f.cl || 'all';
   state.starOnly = !!f.star; state.limit = PAGE;
   syncFilterUI(); renderTable(); showTab('students');
 }
@@ -1113,21 +1145,31 @@ function syncFilterUI(){
   $('fBatch').innerHTML = opt('all', `All batches (${total})`, state.batch) + batches.map(b => opt(b, `Batch ${b} (${students.filter(s => s.batch === b).length})`, state.batch)).join('');
   if (state.company !== 'all' && !companyMap[state.company]) state.company = 'all';
   $('fCompany').innerHTML = companyOpts(`All companies (${companies.length})`, state.company);
+  if (state.cm !== 'all' && !groupMap.cm[state.cm]) state.cm = 'all';
+  if (state.cl !== 'all' && !groupMap.cl[state.cl]) state.cl = 'all';
+  const gopt = (kind, first, sel) => opt('all', `${first} (${groupList(kind).length})`, sel) + groupList(kind).map(g => opt(g.name, `${g.name} (${g.list.length})`, sel)).join('');
+  $('fCm').innerHTML = gopt('cm', 'All committees', state.cm); $('fCl').innerHTML = gopt('cl', 'All clubs', state.cl);
   $('fSort').value = state.sort; $('q').value = state.q;
+}
+function grpTags(s){
+  const all = [...s.cm.map(x => ['cm', grpBase(x)]), ...s.cl.map(x => ['cl', x])];
+  if (!all.length) return '<span class="gnone">—</span>';
+  const abbr = n => (n.match(/\(([A-Z]{2,5})\)/) || [])[1] || n.replace(/ (Committee|Club|Council)$/, '');
+  return all.slice(0, 2).map(([k, n]) => `<span class="gtag ${k}" title="${esc(n)}">${esc(abbr(n))}</span>`).join('') + (all.length > 2 ? `<span class="gtag gmore" title="${esc(all.slice(2).map(a => a[1]).join(', '))}">+${all.length - 2}</span>` : '');
 }
 function renderTable(){
   const q = state.q.trim().toLowerCase();
   current = students.filter(s =>
     (state.status === 'all' || s.status === state.status) && (state.batch === 'all' || s.batch === state.batch) &&
-    (state.company === 'all' || s.co === state.company) && (!state.starOnly || stars.has(s.prn)) &&
-    (!q || [s.name, s.prn, s.snap, s.email, s.co, LABEL[s.status]].some(v => String(v).toLowerCase().includes(q)))
+    (state.company === 'all' || s.co === state.company) && (state.cm === 'all' || s.cm.some(x => grpBase(x) === state.cm)) && (state.cl === 'all' || s.cl.includes(state.cl)) && (!state.starOnly || stars.has(s.prn)) &&
+    (!q || [s.name, s.prn, s.snap, s.email, s.co, LABEL[s.status], ...s.cm, ...s.cl].some(v => String(v).toLowerCase().includes(q)))
   ).sort((a, b) => { const x = a[state.sort], y = b[state.sort];
     return (typeof x === 'number' ? x - y : String(x).localeCompare(String(y))) * state.dir; });
   const shown = current.slice(0, state.limit), left = current.length - shown.length;
   $('tbody').innerHTML = shown.map(s => { const on = stars.has(s.prn);
     return `<tr data-sr="${s.sr}"><td class="c-sr">${s.sr}</td><td class="c-batch">${esc(s.batch)}</td><td class="c-prn">${hl(s.prn, q)}</td><td class="c-snap">${hl(s.snap, q)}</td>
     <td class="c-name"><button class="star ${on ? 'on' : ''}" data-prn="${esc(s.prn)}" aria-pressed="${on}" aria-label="${on ? 'Remove from shortlist' : 'Add to shortlist'}">★</button>${hl(title(s.name), q)}${recent.has(s.prn) ? '<span class="newtag">NEW</span>' : ''}</td>
-    <td class="c-email">${hl(s.email, q)}</td><td class="c-status"><span class="badge ${s.status}">${LABEL[s.status]}</span></td><td class="c-co">${s.co ? hl(s.co, q) : '—'}</td></tr>`; }).join('');
+    <td class="c-email">${hl(s.email, q)}</td><td class="c-status"><span class="badge ${s.status}">${LABEL[s.status]}</span></td><td class="c-co">${s.co ? hl(s.co, q) : '—'}</td><td class="c-grp">${grpTags(s)}</td></tr>`; }).join('');
   $('empty').hidden = current.length > 0;
   $('empty').innerHTML = state.starOnly && !stars.size ? 'No starred students yet. Tap the ★ next to a name to add one.' : 'No students match these filters.';
   $('more').innerHTML = left > 0 ? `<button class="btn p" data-m="more">Show ${Math.min(PAGE, left)} more</button><button class="btn" data-m="all">Show all (${left} left)</button>` : '';
@@ -1139,6 +1181,8 @@ function renderTable(){
   if (state.status !== 'all') ac.push(['status', LABEL[state.status]]);
   if (state.batch !== 'all') ac.push(['batch', 'Batch ' + state.batch]);
   if (state.company !== 'all') ac.push(['company', state.company]);
+  if (state.cm !== 'all') ac.push(['cm', state.cm]);
+  if (state.cl !== 'all') ac.push(['cl', state.cl]);
   if (state.starOnly) ac.push(['star', '★ Starred']);
   $('achips').innerHTML = ac.map(([k, l]) => `<span class="ac">${esc(l)}<button data-clear="${k}" aria-label="Remove filter ${esc(l)}">×</button></span>`).join('') + (ac.length > 1 ? '<button class="ac clear" data-clear="all">Clear all</button>' : '');
   const nf = ac.filter(a => a[0] !== 'q').length; $('fCount').textContent = nf; $('fCount').hidden = !nf;
@@ -1152,9 +1196,55 @@ $('q').oninput = e => { state.q = e.target.value; refilter(); };
 $('fStatus').onchange = e => { state.status = e.target.value; refilter(); };
 $('fBatch').onchange = e => { state.batch = e.target.value; refilter(); };
 $('fCompany').onchange = e => { state.company = e.target.value; refilter(); };
+$('fCm').onchange = e => { state.cm = e.target.value; refilter(); };
+$('fCl').onchange = e => { state.cl = e.target.value; refilter(); };
 $('fSort').onchange = e => { state.sort = e.target.value; state.dir = 1; refilter(); };
 $('sortDir').onclick = () => { state.dir = -state.dir; refilter(); };
 $('starOnly').onclick = () => { state.starOnly = !state.starOnly; refilter(); };
+/* ====================================================================
+   COMMITTEES & CLUBS
+==================================================================== */
+let groupMap = {cm: {}, cl: {}};
+function buildGroups(){
+  groupMap = {cm: {}, cl: {}};
+  students.forEach(s => {
+    s.cm.forEach(x => { const n = grpBase(x); (groupMap.cm[n] = groupMap.cm[n] || {name: n, kind: 'cm', list: []}).list.push({s, role: grpRole(x)}); });
+    s.cl.forEach(n => { (groupMap.cl[n] = groupMap.cl[n] || {name: n, kind: 'cl', list: []}).list.push({s, role: ''}); });
+  });
+  Object.values(groupMap).forEach(m => Object.values(m).forEach(g => { g.list = g.list.filter((e, i, a) => a.findIndex(o => o.s.sr === e.s.sr) === i); }));
+}
+function groupList(kind){
+  return Object.values(groupMap[kind]).map(g => ({name: g.name, list: g.list.map(e => e.s)})).sort((a, b) => a.name.localeCompare(b.name));
+}
+function renderGroups(){
+  const q = state.gQ.trim().toLowerCase();
+  const open = new Set($$('#gGrid .co.open').map(d => d.dataset.g));
+  let all = [...(state.gKind !== 'cl' ? Object.values(groupMap.cm) : []), ...(state.gKind !== 'cm' ? Object.values(groupMap.cl) : [])];
+  all = all.filter(g => !q || g.name.toLowerCase().includes(q) || g.list.some(e => e.s.name.toLowerCase().includes(q)))
+    .sort((a, b) => b.list.length - a.list.length || a.name.localeCompare(b.name));
+  $$('#gKind button').forEach(b => b.classList.toggle('on', b.dataset.k === state.gKind));
+  const inAny = students.filter(s => s.cm.length || s.cl.length).length;
+  $('gCount').textContent = `${all.length} GROUPS · ${inAny} OF ${total} STUDENTS INVOLVED · ${total - inAny} IN NONE`;
+  $('gGrid').innerHTML = all.length ? all.map(g => {
+    const pl = g.list.filter(e => e.s.status === 'placed').length, na = g.list.filter(e => e.s.status === 'na').length, pe = g.list.length - pl - na;
+    const key = g.kind + '|' + g.name;
+    return `<div class="glass co ${open.has(key) || q ? 'open' : ''}" data-g="${esc(key)}">
+      <button class="co-h"><div class="top"><b>${esc(g.name)}</b><span class="num">${g.list.length}</span></div>
+      <div class="split" data-tip="Placed ${pl} · Not applicable ${na} · Yet to be placed ${pe}"><i style="flex:${pl}"></i><i style="flex:${pe}"></i></div>
+      <div class="foot"><span class="gtag ${g.kind}">${g.kind === 'cm' ? 'Committee' : 'Club'}</span><span>${pl} placed · ${pe} pending${na ? ' · ' + na + ' n/a' : ''}</span></div></button>
+      <div class="list"><div class="chips">${g.list.map(e => `<button class="chip" data-sr="${e.s.sr}"><span class="av">${esc(initials(e.s.name))}</span>${esc(title(e.s.name))}${e.role ? `<em class="role">${esc(e.role)}</em>` : ''}</button>`).join('')}</div>
+        <div class="row"><button class="btn p" data-ga="table" data-g="${esc(key)}">View in table</button><button class="btn" data-ga="mail" data-g="${esc(key)}">Copy emails</button></div></div></div>`;
+  }).join('') : '<div class="empty">No committees or clubs match.</div>';
+}
+$('gGrid').onclick = e => {
+  const a = e.target.closest('[data-ga]');
+  if (a){ const [k, n] = a.dataset.g.split('|'); const g = groupMap[k][n];
+    if (a.dataset.ga === 'table') goStudents(k === 'cm' ? {cm: n} : {cl: n}); else copyText(emailsOf(g.list.map(x => x.s)), `Emails of ${g.list.length} members copied`); return; }
+  if (e.target.closest('.chip')) return;
+  const hd = e.target.closest('.co-h'); if (hd) hd.parentElement.classList.toggle('open');
+};
+$('gQ').oninput = e => { state.gQ = e.target.value; renderGroups(); };
+$('gKind').onclick = e => { const b = e.target.closest('button'); if (b){ state.gKind = b.dataset.k; renderGroups(); } };
 $('reset').onclick = () => goStudents();
 $('fToggle').onclick = () => { const o = $('fbar').classList.toggle('open'); $('fToggle').setAttribute('aria-expanded', o); };
 $('print').onclick = () => window.print();
@@ -1174,7 +1264,7 @@ $('tbody').onclick = e => {
 };
 $('csv').onclick = () => {
   const cell = v => '"' + String(v).replace(/"/g, '""') + '"';
-  const lines = [['Sr','Batch','PRN','SNAP ID','Name','Email','Status','Company'].map(cell).join(',')].concat(current.map(s => [s.sr, s.batch, s.prn, s.snap, s.name, s.email, LABEL[s.status], s.co].map(cell).join(',')));
+  const lines = [['Sr','Batch','PRN','SNAP ID','Name','Email','Status','Company','Committees','Clubs'].map(cell).join(',')].concat(current.map(s => [s.sr, s.batch, s.prn, s.snap, s.name, s.email, LABEL[s.status], s.co, s.cm.join('; '), s.cl.join('; ')].map(cell).join(',')));
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], {type:'text/csv'}));
   a.download = 'siom-placements.csv'; a.click(); URL.revokeObjectURL(a.href); toast(`CSV downloaded (${current.length} rows)`);
 };
@@ -1207,6 +1297,7 @@ function openStudent(sr){
     <div class="fact"><small>Batch</small><b>${esc(s.batch)}</b></div><div class="fact"><small>Sr No</small><b>${s.sr}</b></div>
     <div class="fact"><small>PRN</small><b>${esc(s.prn)}</b></div><div class="fact"><small>SNAP ID</small><b>${esc(s.snap)}</b></div>
     <div class="fact wide"><small>Email</small><b>${esc(s.email) || '—'}</b></div></div>
+    ${s.cm.length || s.cl.length ? `<div class="sub" style="margin-top:18px">Committees &amp; clubs</div><div class="gchips">${s.cm.map(x => `<button class="gtag cm big" data-g="cm" data-n="${esc(grpBase(x))}">${esc(grpBase(x))}${grpRole(x) ? `<em>${esc(grpRole(x))}</em>` : ''}</button>`).join('')}${s.cl.map(x => `<button class="gtag cl big" data-g="cl" data-n="${esc(x)}">${esc(x)}</button>`).join('')}</div>` : ''}
     <div class="row">${s.email ? `<button class="btn p" id="shCopy">Copy email</button><a class="btn" href="mailto:${esc(s.email)}" style="text-decoration:none">Send mail</a>` : ''}
     ${s.co ? '<button class="btn" id="shCo">All at ' + esc(s.co) + '</button>' : ''}</div>
     ${i > -1 ? `<div class="snav"><button class="btn" id="shPrev" ${i === 0 ? 'disabled' : ''}>← Prev</button><span>${i + 1} / ${current.length}</span><button class="btn" id="shNext" ${i === current.length - 1 ? 'disabled' : ''}>Next →</button></div>` : ''}
@@ -1225,6 +1316,8 @@ $('helpOv').onclick = e => { if (e.target === $('helpOv')) closeOverlay($('helpO
 $('helpBtn').onclick = () => openOverlay($('helpOv'));
 // any element carrying data-sr opens the student sheet
 document.addEventListener('click', e => {
+  const gb = e.target.closest('.gchips [data-g]');
+  if (gb){ closeOverlay($('sheetOv')); goStudents(gb.dataset.g === 'cm' ? {cm: gb.dataset.n} : {cl: gb.dataset.n}); return; }
   const t = e.target.closest('.chip[data-sr], .dot[data-sr]'); if (!t) return;
   if (!$('palOv').hidden) closeOverlay($('palOv'));
   openStudent(+t.dataset.sr);
@@ -1234,7 +1327,7 @@ document.addEventListener('click', e => {
    COMMAND PALETTE + KEYBOARD
 ==================================================================== */
 const CMDS = [
-  ['Go to Overview', 'tab:overview', '1'], ['Go to Cohort map', 'tab:cohort', '2'], ['Go to Companies', 'tab:companies', '3'], ['Go to Students', 'tab:students', '4'],
+  ['Go to Overview', 'tab:overview', '1'], ['Go to Cohort map', 'tab:cohort', '2'], ['Go to Companies', 'tab:companies', '3'], ['Go to Students', 'tab:students', '4'], ['Go to Committees & clubs', 'tab:groups', '5'],
   ['Show students yet to be placed', 'f:pending', ''], ['Show placed students', 'f:placed', ''], ['Show my starred students', 'star', ''],
   ['Compare two companies', 'cmp', ''], ['Copy link to this view', 'link', ''], ['Toggle light / dark', 'theme', ''], ['Print or save as PDF', 'print', ''], ['Keyboard shortcuts', 'help', '?']
 ];
@@ -1280,7 +1373,7 @@ document.addEventListener('keydown', e => {
   if (e.key === '/' && !typing && $('palOv').hidden){ e.preventDefault(); openPal(); return; }
   if (e.key === '?' && !typing){ e.preventDefault(); $('helpOv').hidden ? openOverlay($('helpOv')) : closeOverlay($('helpOv')); return; }
   if (e.key === 'Escape'){ const open = anyOverlayOpen(); ['palOv', 'sheetOv', 'helpOv'].forEach(id => { if (!$(id).hidden) closeOverlay($(id)); }); if (!open && typing) document.activeElement.blur(); }
-  if (!typing && !e.metaKey && !e.ctrlKey && !e.altKey && /^[1-4]$/.test(e.key) && !anyOverlayOpen()) showTab(['overview', 'cohort', 'companies', 'students'][+e.key - 1]);
+  if (!typing && !e.metaKey && !e.ctrlKey && !e.altKey && /^[1-5]$/.test(e.key) && !anyOverlayOpen()) showTab(['overview', 'cohort', 'companies', 'students', 'groups'][+e.key - 1]);
   if (!$('sheetOv').hidden && !typing){ if (e.key === 'ArrowRight') navStudent(1); if (e.key === 'ArrowLeft') navStudent(-1); }
   if (!$('palOv').hidden){
     if (e.key === 'ArrowDown'){ e.preventDefault(); palIdx = Math.min(palItems.length - 1, palIdx + 1); hiPal(); }
@@ -1304,7 +1397,7 @@ $('themeBtn').onclick = () => {
 ==================================================================== */
 function renderAll(){
   derive(); renderHero(); renderDonut(); renderInsights(); renderViz(); renderDetail(); renderBatches();
-  renderCohort(); renderCompanies(); renderCompare(); syncFilterUI(); renderTable();
+  buildGroups(); renderCohort(); renderCompanies(); renderCompare(); renderGroups(); syncFilterUI(); renderTable();
 }
 
 /* ====================================================================
@@ -1323,14 +1416,14 @@ function fetchSheet(){
   });
 }
 function parseTable(table){
-  // Columns: C Batch | D Sr No | E PRN | F SNAP ID | G Name | H Email | I Placed In
+  // Columns: C Batch | D Sr No | E PRN | F SNAP ID | G Name | H Email | I Placed In | J Committees | K Clubs (separated by ;)
   const val = c => (c == null || c.v == null) ? '' : (c.f != null && typeof c.v === 'number' ? String(c.f).replace(/,/g, '') : String(c.v)).trim();
   const out = []; let batch = '';
   for (const r of table.rows){
     const c = r.c || [], sr = parseInt(val(c[3]), 10), name = val(c[6]);
     if (!sr || !name) continue;
     const b = val(c[2]); if (b) batch = b.replace(/^batch\s*/i, '').trim() || batch;
-    out.push(mkStudent(sr, batch, val(c[4]), val(c[5]), name, val(c[7]), val(c[8])));
+    out.push(mkStudent(sr, batch, val(c[4]), val(c[5]), name, val(c[7]), val(c[8]), val(c[9]), val(c[10])));
   }
   return out;
 }
