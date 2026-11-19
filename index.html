@@ -3,36 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#060913">
+<meta name="theme-color" content="#010402">
 <title>SIOM Nashik · Placement Dashboard 2025–27</title>
 <script>
 try{var t=localStorage.getItem('siom-theme');
-document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));}
+document.documentElement.setAttribute('data-theme',t||'dark');}
 catch(e){document.documentElement.setAttribute('data-theme','dark');}
 </script>
 <style>
 :root{
   color-scheme:dark;
-  --bg:#060913;--ink:#e8edf7;--mute:#8e98ae;--faint:#5c667c;--line:rgba(255,255,255,.085);
-  --glass:rgba(255,255,255,.045);--glass-2:rgba(255,255,255,.075);--glass-hi:rgba(255,255,255,.07);
-  --accent:#8fb4ff;--accent-2:#7fd8d0;
-  --placed:#6ee7c8;--na:#f2c280;--pending:#ef9aab;
-  --blob-1:rgba(84,118,226,.24);--blob-2:rgba(56,186,176,.15);--blob-3:rgba(146,108,230,.13);
-  --shadow:0 18px 50px -24px rgba(0,0,0,.75);
-  --grid:rgba(255,255,255,.028);
-  --radius:20px;
-  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --bg:#010402;--ink:#d4ffe4;--mute:#7fae94;--faint:#4a6e5a;--line:rgba(0,255,140,.16);
+  --glass:rgba(0,255,140,.035);--glass-2:rgba(0,255,140,.08);--glass-hi:rgba(0,255,140,.10);
+  --accent:#00ff9c;--accent-2:#3df5ff;
+  --placed:#00ff9c;--na:#ffd23f;--pending:#ff4d6d;
+  --blob-1:rgba(0,255,120,.16);--blob-2:rgba(0,200,255,.08);--blob-3:rgba(120,255,0,.08);
+  --shadow:0 0 0 1px rgba(0,255,140,.04),0 18px 50px -24px rgba(0,0,0,.9);
+  --grid:rgba(0,255,140,.05);
+  --radius:12px;
+  --mono:ui-monospace,SFMono-Regular,"JetBrains Mono","Fira Code",Menlo,Consolas,monospace;
 }
 :root[data-theme="light"]{
   color-scheme:light;
-  --bg:#edf0f8;--ink:#131a2c;--mute:#586279;--faint:#8a93a8;--line:rgba(20,30,60,.10);
-  --glass:rgba(255,255,255,.58);--glass-2:rgba(255,255,255,.82);--glass-hi:rgba(255,255,255,.9);
-  --accent:#3d62d6;--accent-2:#14998f;
-  --placed:#0f9c7c;--na:#bd7a10;--pending:#c94861;
-  --blob-1:rgba(84,118,226,.20);--blob-2:rgba(56,186,176,.16);--blob-3:rgba(146,108,230,.13);
-  --shadow:0 18px 50px -26px rgba(30,40,80,.35);
-  --grid:rgba(20,30,60,.035);
+  --bg:#f4eee2;--ink:#221c12;--mute:#6b6050;--faint:#9a8f7c;--line:rgba(70,50,20,.14);
+  --glass:rgba(255,252,244,.66);--glass-2:rgba(255,252,244,.9);--glass-hi:rgba(255,255,255,.95);
+  --accent:#c2410c;--accent-2:#0f766e;
+  --placed:#15803d;--na:#a16207;--pending:#be123c;
+  --blob-1:rgba(251,146,60,.22);--blob-2:rgba(45,212,191,.16);--blob-3:rgba(250,204,21,.16);
+  --shadow:0 18px 50px -26px rgba(90,60,20,.35);
+  --grid:rgba(90,60,20,.045);
+  --radius:20px;
 }
+/* ---------- hacker mode (dark) ---------- */
+:root[data-theme="dark"] body{font-family:var(--mono);font-size:14px;letter-spacing:-.005em}
+:root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] .num{text-shadow:0 0 14px rgba(0,255,140,.35)}
+:root[data-theme="dark"] .glass{border-color:var(--line);box-shadow:var(--shadow),inset 0 0 22px rgba(0,255,140,.025)}
+:root[data-theme="dark"] .glass:hover{border-color:rgba(0,255,140,.4);box-shadow:0 0 22px -6px rgba(0,255,140,.35),inset 0 0 22px rgba(0,255,140,.04)}
+:root[data-theme="dark"] .bg::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);mix-blend-mode:multiply;opacity:.55}
+:root[data-theme="dark"] ::selection{background:#00ff9c;color:#001a0d}
+#rain{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s;pointer-events:none}
+:root[data-theme="dark"] #rain{opacity:.22}
+@media (prefers-reduced-motion:reduce){#rain{display:none}}
+.caret::after{content:"_";margin-left:2px;animation:blink 1s steps(1) infinite;color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;min-height:100vh;overflow-x:hidden;font-feature-settings:"tnum"}
@@ -248,8 +261,8 @@ tbody tr:last-child td{border-bottom:0}
 .empty{padding:40px;text-align:center;color:var(--mute)}
 
 /* ---------- overlays ---------- */
-.overlay{position:fixed;inset:0;z-index:80;background:rgba(3,6,14,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .22s}
-:root[data-theme="light"] .overlay{background:rgba(220,226,240,.55)}
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(0,6,2,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .22s}
+:root[data-theme="light"] .overlay{background:rgba(244,238,226,.6)}
 .overlay.show{opacity:1}
 .sheet{width:min(480px,100%);max-height:88vh;overflow:auto;padding:24px;transform:translateY(18px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1);background:color-mix(in srgb,var(--bg) 55%,var(--glass-2))}
 .overlay.show .sheet{transform:none}
@@ -408,7 +421,7 @@ mark{background:color-mix(in srgb,var(--accent) 30%,transparent);color:inherit;b
 </style>
 </head>
 <body>
-<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><canvas id="rain"></canvas></div>
 
 <header class="topbar glass">
   <div class="brand">
@@ -1389,7 +1402,7 @@ $('themeBtn').onclick = () => {
   const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', next);
   try { localStorage.setItem('siom-theme', next); } catch(e){}
-  document.querySelector('meta[name=theme-color]').content = next === 'light' ? '#edf0f8' : '#060913';
+  document.querySelector('meta[name=theme-color]').content = next === 'light' ? '#f4eee2' : '#010402';
 };
 
 /* ====================================================================
@@ -1466,6 +1479,31 @@ addEventListener('scroll', () => bt.classList.toggle('show', scrollY > 700), {pa
 bt.onclick = () => scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
 refresh();
 setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+
+/* ---------- matrix rain (dark theme only, subtle) ---------- */
+(function(){
+  const cv = document.getElementById('rain'); if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cx = cv.getContext('2d'), CH = '01アイウエオカキクケコサシスセソ<>/{}$#=+*', FS = 16; let cols, drops, raf = 0, last = 0;
+  function size(){ cv.width = innerWidth; cv.height = innerHeight; cols = Math.ceil(cv.width / FS); drops = Array.from({length: cols}, () => Math.random() * -50); }
+  function frame(t){
+    raf = requestAnimationFrame(frame);
+    if (t - last < 55) return; last = t;
+    cx.fillStyle = 'rgba(1,4,2,.12)'; cx.fillRect(0, 0, cv.width, cv.height);
+    cx.fillStyle = '#00ff9c'; cx.font = FS + 'px monospace';
+    for (let i = 0; i < cols; i++){
+      cx.fillText(CH[Math.random() * CH.length | 0], i * FS, drops[i] * FS);
+      if (drops[i] * FS > cv.height && Math.random() > .975) drops[i] = 0; drops[i]++;
+    }
+  }
+  function sync(){
+    const dark = document.documentElement.getAttribute('data-theme') !== 'light';
+    if (dark && !raf && !document.hidden){ size(); raf = requestAnimationFrame(frame); }
+    else if ((!dark || document.hidden) && raf){ cancelAnimationFrame(raf); raf = 0; cx.clearRect(0, 0, cv.width, cv.height); }
+  }
+  new MutationObserver(sync).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  document.addEventListener('visibilitychange', sync); addEventListener('resize', () => { if (raf) size(); });
+  sync();
+})();
 </script>
 </body>
 </html>
